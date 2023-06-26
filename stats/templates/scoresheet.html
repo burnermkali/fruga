@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Nukta Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/feather/feather.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/ti-icons/css/themify-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/css/vendor.bundle.base.css')}}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/ti-icons/css/themify-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='js/select.dataTables.min.css')}}">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/vertical-layout-light/style.css')}}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/favicon.ico')}}" />
+    <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
+  </head>
+<style>
+  a.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+</style>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo mr-5" href="/dashboard"><img src="{{url_for('static', filename='images/logo_.png')}}" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="/dashboard"><img src="{{url_for('static', filename='images/logo_small.png')}}" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        
+        <ul class="navbar-nav navbar-nav-right">
+          
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="{{url_for('static', filename='images/avatar.png')}}" alt="profile"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-power-off text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+          <!-- <li class="nav-item nav-settings d-none d-lg-flex">
+            <a class="nav-link" href="#">
+              <i class="icon-ellipsis"></i>
+            </a>
+          </li> -->
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <!-- <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+
+         
+        </div>
+      </div> -->
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/scoresheet">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Score Sheets</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="shot-chart.html">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Shot Chart</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="player-performance.html">
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">Player Performance</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled"  href="lineup-analysis.html">
+              <i class="icon-bar-graph menu-icon"></i>
+              <span class="menu-title">Lineup Analysis</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="opponent-scouting.html">
+              <i class="icon-grid-2 menu-icon"></i>
+              <span class="menu-title">Opponent Scouting</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="play-analysis.html">
+              <i class="icon-contract menu-icon"></i>
+              <span class="menu-title">Play by Play Analysis</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="video-analysis.html">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Video Analysis</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+              <i class="icon-ban menu-icon"></i>
+              <span class="menu-title">Error pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="error">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+              </ul>
+            </div>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="pages/documentation/documentation.html">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li> -->
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold">Upload FIBA Boxscore</h3>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- <div class="col-md-6 grid-margin stretch-card">
+              <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    data-setup="{}"
+  >
+    <source src="images/video.mp4" type="video/mp4" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
+  </video>
+            </div> -->
+            <!-- <div class="col-md-12 grid-margin transparent">
+              <div class="row">
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                  <div class="card card-tale">
+                    <div class="card-body">
+                      <p class="mb-4">W - L</p>
+                      <p class="fs-30 mb-2">12 - 8</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                  <div class="card card-dark-blue">
+                    <div class="card-body">
+                      <p class="mb-4">Overall Shooting Percentage</p>
+                      <p class="fs-30 mb-2">48.4%</p>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                  <div class="card card-light-blue">
+                    <div class="card-body">
+                      <p class="mb-4">Points per game</p>
+                      <p class="fs-30 mb-2">108.1</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 stretch-card transparent">
+                  <div class="card card-light-danger">
+                    <div class="card-body">
+                      <p class="mb-4">Points per 100 Possesion</p>
+                      <p class="fs-30 mb-2">133.3</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="row">
+            <!-- <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title">Your Team</p>
+                  <p class="font-weight-500">UNITED STATED INTERNATIONAL UNIVERSITY AFRICA</p>
+                  <div class="d-flex flex-wrap mb-5">
+                    <div class="mr-5 mt-3">
+                      <p class="text-muted">Total Games</p>
+                      <h3 class="text-primary fs-30 font-weight-medium">20</h3>
+                    </div>
+                    <div class="mr-5 mt-3">
+                      <p class="text-muted">Won</p>
+                      <h3 class="text-primary fs-30 font-weight-medium">12</h3>
+                    </div>
+                    <div class="mr-5 mt-3">
+                      <p class="text-muted">Lost</p>
+                      <h3 class="text-primary fs-30 font-weight-medium">8</h3>
+                    </div>
+                    <div class="mt-3">
+                      <p class="text-muted">Success Rate</p>
+                      <h3 class="text-primary fs-30 font-weight-medium">60%</h3>
+                    </div> 
+                  </div>
+                  <canvas id="order-chart"></canvas>
+                </div>
+              </div>
+            </div> -->
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Upload Scoresheet PDF</h4>
+                      <p class="card-description">
+                        FIBA Boxscore Scoresheet
+                      </p>
+                      <form class="forms-sample" method="post" action="/upload" enctype="multipart/form-data" >
+                        <div class="form-group">
+                          <label for="exampleInputUsername1">Team</label>
+                          <input type="text" name="team" class="form-control"  value="{{team}}" style="text-transform: capitalize;" readonly>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Game Date</label>
+                          <input type="text" name="game_date" class="form-control" placeholder="22062023">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">League</label>
+                            <select id="my-dropdown" name="type" class="form-control">
+                                <option value="NBL">NBL</option>
+                                <option value="NBA">NBA</option>
+                                <option value="NBA">KBL</option>
+                                <option value="NBA">BAL</option>
+                              </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Game Type</label>
+                            <select id="my-dropdown" name="type" class="form-control">
+                                <option value="friendly">Friendly</option>
+                                <option value="SIEL">SIEL</option>
+                              </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Where</label>
+                            <select id="my-dropdown" name="type" class="form-control">
+                                <option value="home">Home</option>
+                                <option value="away">Away</option>
+                              </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Other Team</label>
+                            <input type="text" name="other_team" class="form-control" placeholder="The competitor">
+                          </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Scoresheet PDF</label>
+                          <input type="file" name="file" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button class="btn btn-light">Cancel</button>
+                      </form>
+                    </div>
+                  </div>
+            </div>
+          </div>
+        
+          
+          
+
+          
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2023. <a href="https://www.bootstrapdash.com/" target="_blank">Nukta</a> a software by Shujero LTD</span>
+            
+          </div>
+        </footer> 
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>   
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{{url_for('static', filename='vendors/js/vendor.bundle.base.js')}}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="{{url_for('static', filename='vendors/chart.js/Chart.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendors/datatables.net/jquery.dataTables.js')}}"></script>
+  <script src="{{url_for('static', filename='vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{url_for('static', filename='js/dataTables.select.min.js')}}"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{{url_for('static', filename='js/off-canvas.js')}}"></script>
+  <script src="{{url_for('static', filename='js/hoverable-collapse.js')}}"></script>
+  <script src="{{url_for('static', filename='js/template.js')}}"></script>
+  <script src="{{url_for('static', filename='js/settings.js')}}"></script>
+  <script src="{{url_for('static', filename='js/todolist.js')}}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{{url_for('static', filename='js/dashboard.js')}}"></script>
+  <script src="{{url_for('static', filename='js/Chart.roundedBarCharts.js')}}"></script>
+  <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>

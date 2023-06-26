@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Upload Your Fiba Box Score</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Upload Scoresheet PDF</h4>
+          <p class="card-description">
+            FIBA Boxscore Scoresheet
+          </p>
+          <form method="POST" action="/upload" enctype="multipart/form-data">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" name="team" style="text-transform: capitalize;"  value="{{team}}" readonly>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" name="game_date" placeholder="Date (eg 21062023)" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <div class="select is-large is-fullwidth">
+                      <select name="league" required>
+                        <option value="NBL" selected>NBL</option>
+                        <option value="NBA">NBA</option>
+                        <option value="EuroLeague">KBL</option>
+                        <option value="ACB">BAL</option>
+                      </select>
+                    </div>
+                  </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+                <div class="select is-large is-fullwidth">
+                  <select name="game_type" required>
+                    <option value="SIEL" selected>SIEL</option>
+                    <option value="friendly">Friendly</option>
+                  </select>
+                </div>
+              </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+            <div class="select is-large is-fullwidth">
+              <select name="where" required>
+                <option value="home" selected>Home</option>
+                <option value="away">Away</option>
+              </select>
+            </div>
+          </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+        <input class="input is-large" type="text" name="other_team" placeholder="Other Team" required>
+    </div>
+</div>
+
+
+          <div class="field">
+            <div class="control">
+                <input class="input is-large" type="file" name="file" required>
+            </div>
+        </div>
+
+            <button class="button is-block is-info is-large is-fullwidth">Upload</button>
+        </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}
