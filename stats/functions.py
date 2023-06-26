@@ -340,7 +340,7 @@ def process_second_file(CSV_FOLDER):
         combined_df = pd.concat([df, df2, df3, df4, df5, df6, df7], ignore_index=True, axis=1)
 
         # Define your own column names
-        column_names = ['two points percentage', 'two points made', 'two points attempts', 'three points percentage', 'three points made', 'three points attempts', 'FG percentage', 'FG made', 'FG attempts', 'Fouls PF', 'Fouls FD', 'Free Throws percentage', 'Free Throws made' ,'free Throws attempts', 'Rebounds OR', 'Rebounds DR', 'Rebounds TOT', 'Player', 'Min', 'AS', 'TO', 'ST', 'BS', 'plus or minus', 'PTS']
+        column_names = ['Two Points Percentage', 'Two Points Made', 'Two Points Attempts', 'Three Points Percentage', 'Three Points Made', 'Three Points Attempts', 'FG Percentage', 'FG Made', 'FG Attempts', 'Fouls PF', 'Fouls FD', 'Free Throws Percentage', 'Free Throws Made' ,'Free Throws Attempts', 'Rebounds OR', 'Rebounds DR', 'Rebounds TOT', 'Player', 'Min', 'AS', 'TO', 'ST', 'BS', 'Plus or Minus', 'PTS']
         # Assign the column names to the DataFrame 
         combined_df.columns = column_names
         new_combined_df = combined_df.drop(0)
@@ -384,7 +384,7 @@ def process_third_file(CSV_FOLDER):
         combined_df = pd.concat([df, df2, df3, df4, df5, df6, df7], ignore_index=True, axis=1)
 
         # Define your own column names
-        column_names = ['two points percentage', 'two points made', 'two points attempts', 'three points percentage', 'three points made', 'three points attempts', 'FG percentage', 'FG made', 'FG attempts', 'Fouls PF', 'Fouls FD', 'Free Throws percentage', 'Free Throws made' ,'free Throws attempts', 'Rebounds OR', 'Rebounds DR', 'Rebounds TOT', 'Player', 'Min', 'AS', 'TO', 'ST', 'BS', 'plus or minus', 'PTS']
+        column_names = ['Two Points Percentage', 'Two Points Made', 'Two Points Attempts', 'Three Points Percentage', 'Three Points Made', 'Three Points attempts', 'FG Percentage', 'FG Made', 'FG Attempts', 'Fouls PF', 'Fouls FD', 'Free Throws Percentage', 'Free Throws Made' ,'Free Throws Attempts', 'Rebounds OR', 'Rebounds DR', 'Rebounds TOT', 'Player', 'Min', 'AS', 'TO', 'ST', 'BS', 'Plus or Minus', 'PTS']
         # Assign the column names to the DataFrame 
         combined_df.columns = column_names
         new_combined_df = combined_df.drop(0)

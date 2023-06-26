@@ -285,37 +285,34 @@
                       <p class="card-description">
                         FIBA Boxscore Scoresheet
                       </p>
-                      <form class="forms-sample" method="post" action="/upload" enctype="multipart/form-data" >
+                      <form class="forms-sample" method="post" action="/scoresheet" enctype="multipart/form-data" >
                         <div class="form-group">
                           <label for="exampleInputUsername1">Team</label>
                           <input type="text" name="team" class="form-control"  value="{{team}}" style="text-transform: capitalize;" readonly>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Game Date</label>
-                          <input type="text" name="game_date" class="form-control" placeholder="22062023">
+                          <input type="date" name="game_date" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">League</label>
-                            <select id="my-dropdown" name="type" class="form-control">
+                            <select id="my-dropdown" name="league" class="form-control">
                                 <option value="NBL">NBL</option>
                                 <option value="NBA">NBA</option>
-                                <option value="NBA">KBL</option>
-                                <option value="NBA">BAL</option>
-                              </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Game Type</label>
-                            <select id="my-dropdown" name="type" class="form-control">
-                                <option value="friendly">Friendly</option>
+                                <option value="KNBL">KNBL</option>
+                                <option value="BAL">BAL</option>
+                                <option value="KUS">KUS</option>
                                 <option value="SIEL">SIEL</option>
+                                <option value="Friendly">Friendly</option>
                               </select>
                         </div>
+                       
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Where</label>
-                            <select id="my-dropdown" name="type" class="form-control">
-                                <option value="home">Home</option>
-                                <option value="away">Away</option>
+                            <select id="my-dropdown" name="where" class="form-control">
+                                <option value="scoresheetA">Scoresheet A</option>
+                                <option value="scoresheetB">Scoresheet B</option>
                               </select>
                         </div>
                         <div class="form-group">

@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 from .functions import *
 from . import db
 from .models import User, Scoresheet
-from .stats import calculate_rankings, map_csv_to_postgres
+from .stats import calculate_rankings
 from datetime import datetime
 
 
@@ -62,33 +62,33 @@ def dashboard():
      
     return render_template('dashboard.html', csv_files=csv_files, player_stats=player_stats, team=current_user.team, simplify_csv=simplify_csv)
 
-@main.route('/scoresheet')
-@login_required
-def scoresheet():
-    return render_template('scoresheet.html', team=current_user.team)
 
-@main.route('/upload')
+
+@main.route('/scoresheet')
 @login_required
 def upload():
     team = current_user.team
-    return render_template('uploadlogin.html', team=team)
+    return render_template('scoresheet.html', team=team)
     
   
     
 
-@main.route('/upload', methods=['POST'])
+@main.route('/scoresheet', methods=['POST'])
 def upload_post():
    team= request.form.get('team')
    game_date = request.form.get('game_date')
    league = request.form.get('league')
-   game_type = request.form.get('game_type')
    where = request.form.get('where')
    other_team = request.form.get('other_team')
    file = request.files['file']
 
-   date_string = str(game_date)
-   date_obj = datetime.strptime(date_string, "%d%m%Y")
-   game_string = date_obj.strftime("%d %B %Y")
+   date_string = game_date
+   game_date = datetime.strptime(date_string, "%Y-%m-%d")
+   game_date = datetime.strftime(game_date, "%d%m%Y")
+   
+   input_date = game_date
+   date_obj =  datetime.strptime(input_date, "%d%m%Y")
+   game_string = datetime.strftime(date_obj, "%dth %B %Y")
 
    os.makedirs('finals', exist_ok=True)
 
@@ -103,17 +103,14 @@ def upload_post():
    if sheet:
         flash('Scoresheet already exists')
         return redirect(url_for('main.upload'))
-   new_scoresheet = Scoresheet(team=team, game_date=int(game_date), game_string=game_string,league=league, game_type=game_type, where=where, filename=filename)
-   if where == "home":
+   new_scoresheet = Scoresheet(team=team, game_date=int(game_date), game_string=game_string,league=league, where=where, filename=filename)
+   if where == "scoresheetA":
     new_scoresheet.away_team = other_team
-   elif where == "away":
+   elif where == "scoresheetB":
     new_scoresheet.home_team = other_team
-   
-   user.new_user = True
-   
    db.session.add(new_scoresheet)
    db.session.commit()
-
+  
    
     
 
@@ -165,7 +162,7 @@ def upload_post():
                 
         process_second_file(CSV_FOLDER)
         process_third_file(CSV_FOLDER)
-        if request.form.get('where') == 'home':
+        if request.form.get('where') == 'scoresheetA':
             csv_file = os.path.join(CSV_FOLDER, 'final-home.csv')
             calculate_rankings(csv_file, team_name=current_user.team, game_date=request.form.get('game_date'))
 
@@ -173,7 +170,7 @@ def upload_post():
             csv_file1 = os.path.join(f'{current_user.team}{game_date}rankings.csv')
             #map_csv_to_postgres(csv_file1, team_name=current_user.team, game_date=request.form.get('date'))
             return redirect(url_for('main.dashboard'))
-        elif request.form.get('where') == 'away':
+        elif request.form.get('where') == 'scoresheetB':
             csv_file = os.path.join(CSV_FOLDER, 'final-away.csv')
             calculate_rankings(csv_file, team_name=current_user.team, game_date=request.form.get('game_date'))
             
@@ -182,7 +179,7 @@ def upload_post():
             #map_csv_to_postgres(csv_file1, team_name=current_user.team, game_date=request.form.get('date'))
             return redirect(url_for('main.dashboard'))
         else:
-            return redirect(url_for('main.upload'))
+            return redirect(url_for('main.scoresheet'))
 
 
 

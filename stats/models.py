@@ -20,7 +20,6 @@ class Scoresheet(db.Model):
     game_date = db.Column(db.Integer, unique=True)
     game_string = db.Column(db.String)
     league = db.Column(db.String(255))
-    game_type = db.Column(db.String(255))
     where = db.Column(db.String(255))
     home_team = db.Column(db.String(255), nullable=True)
     away_team = db.Column(db.String(255), nullable = True)

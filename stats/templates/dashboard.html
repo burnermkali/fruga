@@ -266,62 +266,142 @@
                             <div class="col-md-12 col-xl-9">
                               <div class="row">
                                 <div class="col-md-6 border-right">
-                                  <div class="table-responsive mb-3 mb-md-0 mt-3">
+                                  <div class="table-responsive mb-3 mb-md-0 mt-3"  style="height: 300px; overflow: auto;">
                                     <table class="table table-borderless report-table">
                                       <tr>
                                         <td class="text-muted">Points</td>
-                                        <td class="w-100 px-0">
-                                          <div class="progress progress-md mx-4">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: {% if stats['Points'] %}{{ stats['Points'] }}{% else %}0{% endif %}%" aria-valuenow="{% if stats['Points'] %}{{ stats['Points'] }}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="30"></div>
-                                          </div>
-                                        </td>
-                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Points'] %}{{ stats['Points'] }}{% else %}N/A{% endif %}</h5></td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Points'] %}{{ stats['Points'] }}{% else %}0{% endif %}</h5></td>
                                       </tr>
+
+
+
                                       <tr>
                                         <!-- Add placeholders and default values for other statistics -->
-                                        <td class="text-muted">Rebounds</td>
-                                        <td class="w-100 px-0">
-                                          <div class="progress progress-md mx-4">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: {% if stats['Rebounds'] %}{{ stats['Rebounds'] }}{% else %}0{% endif %}%" aria-valuenow="{% if stats['Rebounds'] %}{{ stats['Rebounds'] }}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="30"></div>
-                                          </div>
-                                        </td>
-                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Rebounds'] %}{{ stats['Rebounds'] }}{% else %}N/A{% endif %}</h5></td>
+                                        <td class="text-muted">Rebounds TOT</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Rebounds TOT'] %}{{ stats['Rebounds TOT'] }}{% else %}0{% endif %}</h5></td>
                                       </tr>
+
+                                      <tr>
+                                        <!-- Add placeholders and default values for other statistics -->
+                                        <td class="text-muted">Rebounds OR</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Rebounds OR'] %}{{ stats['Rebounds OR'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      <tr>
+                                        <!-- Add placeholders and default values for other statistics -->
+                                        <td class="text-muted">Rebounds DR</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Rebounds DR'] %}{{ stats['Rebounds DR'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+
+
+
                                       <tr>
                                         <td class="text-muted">Assists</td>
-                                        <td class="w-100 px-0">
-                                          <div class="progress progress-md mx-4">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: {% if stats['Assists'] %}{{ stats['Assists'] }}{% else %}0{% endif %}%" aria-valuenow="{% if stats['Assists'] %}{{ stats['Assists'] }}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="30"></div>
-                                          </div>
-                                        </td>
-                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Assists'] %}{{ stats['Assists'] }}{% else %}N/A{% endif %}</h5></td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Assists'] %}{{ stats['Assists'] }}{% else %}0{% endif %}</h5></td>
                                       </tr>
+
+
+
+
                                       <tr>
                                         <td class="text-muted">Blocks</td>
-                                        <td class="w-100 px-0">
-                                          <div class="progress progress-md mx-4">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: {% if stats['Blocks'] %}{{ stats['Blocks'] }}{% else %}0{% endif %}%" aria-valuenow="{% if stats['Blocks'] %}{{ stats['Blocks'] }}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="30"></div>
-                                          </div>
-                                        </td>
-                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Blocks'] %}{{ stats['Blocks'] }}{% else %}N/A{% endif %}</h5></td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Blocks'] %}{{ stats['Blocks'] }}{% else %}0{% endif %}</h5></td>
                                       </tr>
+
+
                                       <tr>
-                                        <td class="text-muted">Three Points</td>
-                                        <td class="w-100 px-0">
-                                          <div class="progress progress-md mx-4">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: {% if stats['Three Points'] %}{{ stats['Three Points'] }}{% else %}0{% endif %}%" aria-valuenow="{% if stats['Three Points'] %}{{ stats['Three Points'] }}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="30"></div>
-                                          </div>
-                                        </td>
-                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Three Points'] %}{{ stats['Three Points'] }}{% else %}N/A{% endif %}</h5></td>
+                                        <td class="text-muted">Three Points Made</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Three Points Made'] %}{{ stats['Three Points Made'] }}{% else %}0{% endif %}</h5></td>
                                       </tr>
+
+
                                       <tr>
-                                        <td class="text-muted">Two Points</td>
-                                        <td class="w-100 px-0">
-                                          <div class="progress progress-md mx-4">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: {% if stats['Two Points'] %}{{ stats['Two Points'] }}{% else %}0{% endif %}%" aria-valuenow="{% if stats['Two Points'] %}{{ stats['Two Points'] }}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="30"></div>
-                                          </div>
-                                        </td>
-                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Two Points'] %}{{ stats['Two Points'] }}{% else %}N/A{% endif %}</h5></td>
+                                        <td class="text-muted">Three Points Attempts</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Three Points Attempts'] %}{{ stats['Three Points Attempts'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td class="text-muted">Three Points Percentage</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Three Points Percentage'] %}{{ stats['Three Points Percentage'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+
+
+                                      <tr>
+                                        <td class="text-muted">Two Points Made</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Two Points Made'] %}{{ stats['Two Points Made'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+
+                                      <tr>
+                                        <td class="text-muted">Two Points Attempts</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Two Points Attempts'] %}{{ stats['Two Points Attempts'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td class="text-muted">Two Points Percentage</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Two Points Percentage'] %}{{ stats['Two Points Percentage'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td class="text-muted">Field Goals Made</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['FG Made'] %}{{ stats['FG Made'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      
+                                      <tr>
+                                        <td class="text-muted">Field Goals Attempts</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['FG Attempts'] %}{{ stats['FG Attempts'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      
+                                      <tr>
+                                        <td class="text-muted">Field Goals Percentage</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['FG Percentage'] %}{{ stats['FG Percentage'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td class="text-muted">Fouls PF</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Fouls PF'] %}{{ stats['Fouls PF'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td class="text-muted">Fouls FD</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Fouls FD'] %}{{ stats['Fouls FD'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td class="text-muted">Free Throws Made</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Free Throws Made'] %}{{ stats['Free Throws Made'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+
+                                      
+                                      <tr>
+                                        <td class="text-muted">Free Throws Attempts</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Free Throws Attempts'] %}{{ stats['Free Throws Attempts'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                       
+                                      <tr>
+                                        <td class="text-muted">Free Throws Percentage</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Free Throws Percentage'] %}{{ stats['Free Throws Percentage'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td class="text-muted">Turn Overs</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['TO'] %}{{ stats['TO'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td class="text-muted">ST</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['ST'] %}{{ stats['ST'] }}{% else %}0{% endif %}</h5></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td class="text-muted">+/-</td>
+                                        <td><h5 class="font-weight-bold mb-0">{% if stats['Plus or Minus'] %}{{ stats['Plus or Minus'] }}{% else %}0{% endif %}</h5></td>
                                       </tr>
                                       <!-- Add more player stats as needed -->
                                     </table>
@@ -369,7 +449,6 @@
                     <table class="table table-striped table-borderless">
                       <thead>
                         <tr>
-                          <th>Rank</th>
                           <th>Player Name</th>
                           <th>Stat Category</th>
                           <th>Stat Value</th>
@@ -380,7 +459,6 @@
                           {% for stats in player_stats %}
                             {% if stats['Points Rank'] == 1 %}
                               <tr>
-                                <td>1</td>
                                 <td class="font-weight-bold">{{ stats['Player'] }}</td>
                                 <td>Points</td>
                                 <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Points'] }}</div></td>
@@ -388,36 +466,111 @@
                             {% endif %}
                             {% if stats['Assists Rank'] == 1 %}
                               <tr>
-                                <td>2</td>
                                 <td class="font-weight-bold">{{ stats['Player'] }}</td>
                                 <td>Assists</td>
                                 <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Assists'] }}</div></td>
                               </tr>
                             {% endif %}
-                            {% if stats['Rebounds Rank'] == 1 %}
+                            {% if stats['Rebounds TOT Rank'] == 1 %}
                               <tr>
-                                <td>3</td>
+                               
                                 <td class="font-weight-bold">{{ stats['Player'] }}</td>
                                 <td>Rebounds</td>
-                                <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Rebounds'] }}</div></td>
+                                <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Rebounds TOT'] }}</div></td>
                               </tr>
                             {% endif %}
                             {% if stats['Blocks Rank'] == 1 %}
                               <tr>
-                                <td>4</td>
+                                
                                 <td class="font-weight-bold">{{ stats['Player'] }}</td>
                                 <td>Blocks</td>
                                 <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Blocks'] }}</div></td>
                               </tr>
                             {% endif %}
-                            {% if stats['Three Points Rank'] == 1 %}
+                            {% if stats['Three Points Made Rank'] == 1 %}
                               <tr>
-                                <td>5</td>
+                                
                                 <td class="font-weight-bold">{{ stats['Player'] }}</td>
                                 <td>3PT</td>
-                                <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Three Points'] }}</div></td>
+                                <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Three Points Made'] }}</div></td>
                               </tr>
                             {% endif %}
+
+                            {% if stats['Two Points Made Rank'] == 1 %}
+                            <tr>
+                              
+                              <td class="font-weight-bold">{{ stats['Player'] }}</td>
+                              <td>2PT</td>
+                              <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Two Points Made'] }}</div></td>
+                            </tr>
+                          {% endif %}
+
+                          {% if stats['FG Made Rank'] == 1 %}
+                          <tr>
+                            
+                            <td class="font-weight-bold">{{ stats['Player'] }}</td>
+                            <td>3PT</td>
+                            <td class="font-weight-medium"><div class="badge badge-success">{{ stats['FG Made'] }}</div></td>
+                          </tr>
+                        {% endif %}
+
+                        {% if stats['Fouls PF Rank'] == 1 %}
+                        <tr>
+                          
+                          <td class="font-weight-bold">{{ stats['Player'] }}</td>
+                          <td>Fouls PF</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Fouls PF'] }}</div></td>
+                        </tr>
+                      {% endif %}
+
+                      {% if stats['Fouls FD Rank'] == 1 %}
+                      <tr>
+                        
+                        <td class="font-weight-bold">{{ stats['Player'] }}</td>
+                        <td>Fouls PF</td>
+                        <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Fouls FD'] }}</div></td>
+                      </tr>
+                    {% endif %}
+
+
+                      {% if stats['Free Throws Made Rank'] == 1 %}
+                      <tr>
+                        
+                        <td class="font-weight-bold">{{ stats['Player'] }}</td>
+                        <td>FT</td>
+                        <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Free Throws Made'] }}</div></td>
+                      </tr>
+                    {% endif %}
+
+                    {% if stats['TO Rank'] == 1 %}
+                    <tr>
+                      
+                      <td class="font-weight-bold">{{ stats['Player'] }}</td>
+                      <td>TO</td>
+                      <td class="font-weight-medium"><div class="badge badge-success">{{ stats['TO'] }}</div></td>
+                    </tr>
+                  {% endif %}
+
+                  {% if stats['ST Rank'] == 1 %}
+                  <tr>
+                    
+                    <td class="font-weight-bold">{{ stats['Player'] }}</td>
+                    <td>ST</td>
+                    <td class="font-weight-medium"><div class="badge badge-success">{{ stats['ST'] }}</div></td>
+                  </tr>
+                {% endif %}
+
+
+                {% if stats['Plus or Minus Rank'] == 1 %}
+                <tr>
+                  
+                  <td class="font-weight-bold">{{ stats['Player'] }}</td>
+                  <td>+/-</td>
+                  <td class="font-weight-medium"><div class="badge badge-success">{{ stats['Plus or Minus'] }}</div></td>
+                </tr>
+              {% endif %}
+
+
                           {% endfor %}
                         {% endif %}
                       </tbody>

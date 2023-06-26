@@ -22,15 +22,10 @@ def login_post():
         flash('please check your login details and try again')
         return redirect(url_for('auth.login'))
     
-    user1 = User.query.filter_by(email=email).first()
-    #login_user(user1)
+    login_user(user)
     
-    if user1.new_user == True:
-        login_user(user1)
-        return redirect(url_for('main.dashboard'))
-    else:
-        login_user(user1)
-        return redirect(url_for('main.upload'))
+
+    return redirect(url_for('main.dashboard'))
                 
     
 
